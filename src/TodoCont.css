@@ -1,0 +1,11 @@
+h1 {
+    font-size: 2em;
+        text-align: center;
+        color: #906e5c;
+        transition: color 0.3s ease;
+    }
+    
+    h1:hover {
+        color: #c59056;
+    }
+    
