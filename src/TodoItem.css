@@ -35,3 +35,6 @@ p {
     cursor: pointer;
 }
 
+.inactive{
+    display: none;
+}

@@ -20,6 +20,7 @@ function App() {
 
   const complete= todos.filter(todo=> !!todo.completed==true).length;
   const counter= todos.length;
+
   const searchTodo = todos.filter(todo=> { 
       let todoText =todo.text;
       if(todoText.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').search(searchValue.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''))>-1){
@@ -30,9 +31,27 @@ function App() {
       }
     }
   )
-  console.log(complete,counter)
-  console.log('User are searching ToDos')
-  console.log(searchValue)
+
+  const TodoComplet = (text) =>{
+    const newTodos=[...todos]
+    const todoIndex = newTodos.findIndex(
+      elem => elem.text== text
+    );
+    if( newTodos[todoIndex].completed==true){
+      newTodos[todoIndex].completed=false;
+    }
+    else{
+    newTodos[todoIndex].completed=true;}
+    setTodos(newTodos);
+  }
+  const TodoDelet = (text)=>{
+    const newTodos=[...todos]
+    const todoIndex = newTodos.findIndex(
+      elem => elem.text== text
+    );
+    newTodos.splice(todoIndex,1);
+    setTodos(newTodos);
+  }
   return (
     <React.Fragment>
       <TodoCont cont={complete}/>
@@ -44,6 +63,8 @@ function App() {
             key={todo.text} 
             text = {todo.text}
             completed= {todo.completed}
+            onComplete={()=>TodoComplet(todo.text)}
+            onDelete={()=>TodoDelet(todo.text)}
             />
           ))}
       </TodoList>
