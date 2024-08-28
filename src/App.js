@@ -33,6 +33,7 @@ function App() {
   )
 
   const TodoComplet = (text) =>{
+    console.log('Complete')
     const newTodos=[...todos]
     const todoIndex = newTodos.findIndex(
       elem => elem.text== text
@@ -45,6 +46,7 @@ function App() {
     setTodos(newTodos);
   }
   const TodoDelet = (text)=>{
+    console.log('Delete')
     const newTodos=[...todos]
     const todoIndex = newTodos.findIndex(
       elem => elem.text== text
