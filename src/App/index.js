@@ -1,22 +1,33 @@
-import logo from './platzi.webp';
-import {CreateTodoButton} from './CreateTodoButton';
-import {TodoItem }from './TodoItem';
-import {TodoList }from './TodoList';
-import {TodoCont }from './TodoCont';
-import{TodoSearch}from './TodoSearch';
-import{TodoButtonContainer}from './TodoButtonContainer';
+import {CreateTodoButton} from '../CreateTodoButton';
+import {TodoItem } from '../TodoItem';
+import {TodoList } from '../TodoList';
+import {TodoCont } from '../TodoCont';
+import {TodoSearch} from '../TodoSearch';
+import {useLocalStorageItem} from 'e:/Fronted/React/curso-react-intro/src/App/useLocalStorageItem';
+import{TodoButtonContainer}from '../TodoButtonContainer';
 import './App.css';
 import React from 'react';
+let newelements
+// const defaultTodos =[
+//   { text: 'Start the React course' , completed: false },
+//   { text:'Finish the app ToDo', completed: true },
+//   { text: 'Deploy the project in github pages', completed: false}
+// ]
 
-const defaultTodos =[
-  { text: 'Start the React course' , completed: false },
-  { text:'Finish the app ToDo', completed: true },
-  { text: 'Deploy the project in github pages', completed: false}
-]
+//localStorage.removeItem('TODO_V1')
+
+
+
 function App() {
+  
+  
+
+
   const[searchValue, setSearchValue] = React.useState('');
 
-  const[todos, setTodos] = React.useState(defaultTodos);
+  const[todos, saveTodo] = useLocalStorageItem('TODO_V1', []);
+
+ 
 
   const complete= todos.filter(todo=> !!todo.completed==true).length;
   const counter= todos.length;
@@ -34,25 +45,25 @@ function App() {
 
   const TodoComplet = (text) =>{
     console.log('Complete')
-    const newTodos=[...todos]
-    const todoIndex = newTodos.findIndex(
+    const newItem=[...todos]
+    const todoIndex = newItem.findIndex(
       elem => elem.text== text
     );
-    if( newTodos[todoIndex].completed==true){
-      newTodos[todoIndex].completed=false;
+    if( newItem[todoIndex].completed==true){
+      newItem[todoIndex].completed=false;
     }
     else{
-    newTodos[todoIndex].completed=true;}
-    setTodos(newTodos);
+    newItem[todoIndex].completed=true;}
+    saveTodo(newItem);
   }
   const TodoDelet = (text)=>{
     console.log('Delete')
-    const newTodos=[...todos]
-    const todoIndex = newTodos.findIndex(
+    const newItem=[...todos]
+    const todoIndex = newItem.findIndex(
       elem => elem.text== text
     );
-    newTodos.splice(todoIndex,1);
-    setTodos(newTodos);
+    newItem.splice(todoIndex,1);
+    saveTodo(newItem);
   }
   return (
     <React.Fragment>
