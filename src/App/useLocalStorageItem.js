@@ -1,23 +1,57 @@
 import React from 'react';
-function useLocalStorageItem (itemName, InitialValue) {
+function useLocalStorageItem (itemName, initialValue) {
   
-    let parsedTodo= localStorage.getItem(itemName)
+    //let parsedTodo= localStorage.getItem(itemName);
+    const [item, setItem]= React.useState(initialValue);
+    const [loading, setLoading]= React.useState(true);
+    const [error, setError]= React.useState(false);
+    React.useEffect(()=>{
+      setTimeout(() => {
+        try {
+          console.log('ok')
+          const localStorageItem = localStorage.getItem(itemName);
+      
+          let parsedItem;
     
-    if(localStorage.length<1){
-      let defaultTodos =InitialValue
-      localStorage.setItem(itemName, JSON.stringify(defaultTodos))
-      parsedTodo= localStorage.getItem(itemName)
-    }
-    else{
-      let parsedTodo= localStorage.getItem(itemName)
-    }
-    const [item, setItem]= React.useState(JSON.parse(parsedTodo));
-  
-      const saveItem= (newItem)=>{
-        localStorage.setItem(itemName, JSON.stringify(newItem))
-        setItem(newItem)
-      }
-   return [item, saveItem];
-  }
- 
-  export { useLocalStorageItem }
+          if (!localStorageItem) {
+            localStorage.setItem(itemName, JSON.stringify(initialValue));
+            parsedItem = initialValue;
+          } else {
+            parsedItem = JSON.parse(localStorageItem);
+            setItem(parsedItem);
+          }
+    
+          setLoading(false);
+        } catch(error) {
+          setLoading(false);
+          setError(true);
+          console.log(error)
+        }
+      }, 2000);
+    });
+
+   // setLoading(false);
+   const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem));
+    setItem(newItem);
+  };
+
+  return {
+    item,
+    saveItem,
+    loading,
+    error,
+  };
+}
+  export {useLocalStorageItem};
+
+
+
+  // const defaultTodos =[
+//   { text: 'Start the React course' , completed: false },
+//   { text:'Finish the app ToDo', completed: true },
+//   { text: 'Deploy the project in github pages', completed: false}
+// ]
+
+//localStorage.removeItem('TODO_V1')
+
