@@ -9,6 +9,7 @@ import { TodosLoading } from '../TodosLoading';
 import './App.css';
 import React from 'react';
 import { TodoContext } from '../TodoContext';
+import { Modal } from '../Modal';
 
 function AppUI() {
   const {
@@ -21,6 +22,8 @@ function AppUI() {
     setSearchValue,
     TodoComplet,
     TodoDelet,
+    openModal, 
+    setOpenModal,
   } = React.useContext(TodoContext);
   
   return (
@@ -42,9 +45,15 @@ function AppUI() {
         ))}
       </TodoList>
       <TodoButtonContainer>
-        <CreateTodoButton icon='+' />
+        <CreateTodoButton icon='+' setOpenModal={setOpenModal}/>
         <CreateTodoButton icon='>' />
       </TodoButtonContainer>
+
+      {openModal && (
+        <Modal>
+            Adds new ToDos
+        </Modal>
+      )}
     </React.Fragment>
   );
 }
