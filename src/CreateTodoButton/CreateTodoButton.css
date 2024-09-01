@@ -1,6 +1,6 @@
 button {
     display: center;
-    padding: 10px 20px;
+    padding: 10px 10px;
     font-size: 1em;
     color: #fff;
     background-color: #cc9873;
@@ -16,3 +16,38 @@ button:hover {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
     transform: rotate(180deg);
 }
+
+/* .CreatedTodobutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: none;
+    color: #fff;
+    background-color: #cc9873;
+    cursor: pointer;
+    animation: rotateGradient 5s linear infinite;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .CreatedTodobutton:hover {
+    background-color: #a89766;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transform: rotate(180deg);
+  } */
+  
+  /* .Icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+/*   
+  @keyframes rotateGradient {
+    0% {
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    }
+    100% {
+      background: linear-gradient(495deg, #ff7e5f, #feb47b);
+    }
+  } */

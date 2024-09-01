@@ -1,0 +1,12 @@
+
+svg:not(:root) {
+    overflow-clip-margin: content-box;
+    overflow: hidden;
+}
+.Icon {
+    cursor: pointer;
+}
+.Icon-svg2 {
+    fill: #ffffff;
+    color: aqua;
+}

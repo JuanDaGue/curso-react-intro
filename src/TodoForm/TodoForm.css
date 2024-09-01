@@ -1,0 +1,46 @@
+form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  textarea {
+    height: 20px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  textarea:focus {
+    border-color: #020101;
+    outline: none;
+  }
+  
+  ::placeholder {
+    color: #999;
+  }
+  
+.Form-button {
+  display: center;
+  margin: auto;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #cc9873;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: min-content;
+}
+
+.Form-button:hover {
+  background-color: #a89766;
+}
+.IconsAdd{color: #fff;
+  font-size: 20px;}
+.IconsAdd:hover{color: #2c2c2c;
+  font-size: 20px;}

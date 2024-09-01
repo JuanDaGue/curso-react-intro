@@ -1,5 +1,6 @@
 
 import { CreateTodoButton } from '../CreateTodoButton';
+import { CreateTodoButton2 } from '../CreateTodoButton2';
 import { TodoItem } from '../TodoItem';
 import { TodoList } from '../TodoList';
 import { TodoCont } from '../TodoCont';
@@ -10,6 +11,9 @@ import './App.css';
 import React from 'react';
 import { TodoContext } from '../TodoContext';
 import { Modal } from '../Modal';
+import { TodoForm } from '../TodoForm';
+
+
 
 function AppUI() {
   const {
@@ -45,13 +49,14 @@ function AppUI() {
         ))}
       </TodoList>
       <TodoButtonContainer>
-        <CreateTodoButton icon='+' setOpenModal={setOpenModal}/>
-        <CreateTodoButton icon='>' />
+        <CreateTodoButton icon='+' setOpenModal={setOpenModal} />
+        <CreateTodoButton2 icon='>' />
+       
       </TodoButtonContainer>
 
       {openModal && (
         <Modal>
-            Adds new ToDos
+            <TodoForm></TodoForm>
         </Modal>
       )}
     </React.Fragment>
