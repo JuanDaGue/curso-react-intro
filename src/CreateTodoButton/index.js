@@ -15,14 +15,7 @@ function CreateTodoButton(props){
     return(
         <button 
         className="CreatedTodobutton Icon Icon-svg2"
-<<<<<<< HEAD
         onClick={handleClick}
-=======
-        onClick={()=> 
-            //console.log('You push the button'), 
-            props.setOpenModal(state=>!state)
-        }
->>>>>>> 4d7ecdaa26183bf6106f58e85bb73118ceac79fe
         
         > <IconPlus/> </button>
     )

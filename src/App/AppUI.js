@@ -1,7 +1,6 @@
 
 import { CreateTodoButton } from '../CreateTodoButton';
 import { CreateTodoButton2 } from '../CreateTodoButton2';
-import { CreateTodoButton2 } from '../CreateTodoButton2';
 import { TodoItem } from '../TodoItem';
 import { TodoList } from '../TodoList';
 import { TodoCont } from '../TodoCont';
@@ -62,7 +61,6 @@ function AppUI() {
 
       {openModal && (
         <Modal>
-            <TodoForm></TodoForm>
             <TodoForm></TodoForm>
         </Modal>
       )}

@@ -70,11 +70,8 @@ function TodoProvider({children}){
             TodoDelet,
             openModal, 
             setOpenModal,
-<<<<<<< HEAD
             openModal2, 
             setOpenModal2,
-=======
->>>>>>> 4d7ecdaa26183bf6106f58e85bb73118ceac79fe
             addTodo,
         }}>
             {children}
