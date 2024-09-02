@@ -4,7 +4,7 @@ function TodoSearch({searchValue,setSearchValue}){
 
     return(
       <input type="text" placeholder="Cut the onios"
-      className="CreatedTodobutton"
+      className="SearchTodobutton"
       value={searchValue}
       onChange={(event)=> {
         setSearchValue(event.target.value);

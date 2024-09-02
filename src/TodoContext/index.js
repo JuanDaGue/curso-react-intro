@@ -5,13 +5,16 @@ const TodoContext =React.createContext();
 
 function TodoProvider({children}){
 
-  const {item: todos, saveItem :saveTodo, loading, error} = useLocalStorageItem('TODO_V1', []);
+    const {item: todos, saveItem :saveTodo, loading, error} = useLocalStorageItem('TODO_V1', []);
     const[searchValue, setSearchValue] = React.useState('');
     const[openModal, setOpenModal] = React.useState(false);
+    const[openModal2, setOpenModal2] = React.useState(false);
     // console.log(todos)
     const complete= todos.filter(todo=> !!todo.completed===true).length;
     const counter= todos.length;
-  
+
+
+    
     const searchTodo = todos.filter(todo=> { 
         let todoText =todo.text;
         if(todoText.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').search(searchValue.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''))>-1){
@@ -37,6 +40,7 @@ function TodoProvider({children}){
       );
       if( newItem[todoIndex].completed===true){
         newItem[todoIndex].completed=false;
+
       }
       else{
       newItem[todoIndex].completed=true;}
@@ -52,6 +56,7 @@ function TodoProvider({children}){
       saveTodo(newItem);
     }
     
+    
     return(
         <TodoContext.Provider value={{
             loading,
@@ -65,6 +70,8 @@ function TodoProvider({children}){
             TodoDelet,
             openModal, 
             setOpenModal,
+            openModal2, 
+            setOpenModal2,
             addTodo,
         }}>
             {children}
